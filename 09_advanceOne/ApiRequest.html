@@ -68,27 +68,27 @@
 
     // *********** CARD
 
-    // const fetchButton = document.getElementById('fetch')
-    // const main = document.querySelector('.main')
-    // fetchButton.addEventListener('click',function(){
+    const fetchButton = document.getElementById('fetch')
+    const main = document.querySelector('.main')
+    fetchButton.addEventListener('click',function(){
 
-    //     const requestUrl = 'https://api.github.com/users/hiteshchoudhary'
-    //     const xhr = new XMLHttpRequest();
-    //     xhr.open('GET', requestUrl)
+        const requestUrl = 'https://api.github.com/users/hiteshchoudhary'
+        const xhr = new XMLHttpRequest();
+        xhr.open('GET', requestUrl)
         
-    //     xhr.onreadystatechange = function(){
-    //         console.log(xhr.readyState)
+        xhr.onreadystatechange = function(){
+            console.log(xhr.readyState)
            
-    //         if (xhr.readyState === 4) {
-    //         const data = JSON.parse(this.responseText)
-    //         main.innerHTML= `<img src= ${data.avatar_url} alt="avatar image">
-    //         <p>Followers : ${data.followers}`
-    //         console.log(main)
-    //         }
-    //         }
+            if (xhr.readyState === 4) {
+            const data = JSON.parse(this.responseText)
+            main.innerHTML= `<img src= ${data.avatar_url} alt="avatar image">
+            <p>Followers : ${data.followers}`
+            console.log(main)
+            }
+            }
 
-    //     xhr.send()
-    //     })
+        xhr.send()
+        })
 
  
 
