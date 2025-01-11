@@ -1,4 +1,4 @@
-// 1 promise hold in a variable
+//**** 1 promise created from new Promise(callback fn) 
 const promiseOne = new Promise(function(resolve,reject){
     setTimeout(() => {
         // console.log("Promise1 is made!")
@@ -10,7 +10,8 @@ promiseOne.then(function(){
     // console.log("promise1 is consumed")
 })
 
-// 2 promise directly created
+
+//***** 2 promise directly created without holding in a variable
 new Promise(function(resolve,reject){
     setTimeout(() => {
         // console.log("Promise2 is made!")
@@ -20,7 +21,8 @@ new Promise(function(resolve,reject){
     // console.log("promise2 is consumed")
 })
 
-// 3 resolve passing fn 
+
+//**** 3 resolve passing fn 
 const promiseThree = new Promise(function(resolve,reject){
     setTimeout(() => {
         // console.log("Promise3 is made!")
@@ -34,8 +36,8 @@ promiseThree.then(function(user){
 
 })
 
-//4 reject() fn, catch(), finally()
 
+//**** 4 reject() fn, catch(), finally()
 const promiseFour = new Promise(function(resolve,reject){
     setTimeout(function(){
     let error = false;
