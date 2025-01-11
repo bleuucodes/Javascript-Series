@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body{
+        background-color: antiquewhite;
+        color:black;
+        margin:0;
+    }
+    .main{
+        width:400px;
+        height:600px;
+        margin:auto;
+        /* margin-top: ; */
+        border-radius: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+    }
+    img{
+        height:300px;
+        width: 600px;
+        object-fit: contain;
+    }
+    p{
+        font-size: 20px;
+    }
+    button{
+        font-size: 20px;
+        padding: 8px;
+        border-radius: 10px;
+        background-color: rgb(231, 19, 19);
+        color: aliceblue; 
+    }
+</style>
+<body >
+    <!-- 0 UNSENT Client has been created. open() not called yet.
+    1 OPENED open() has been called.
+    2 HEADERS_RECEIVED send() has been called, and headers and status are available.
+    3 LOADING Downloading; responseText holds partial data.
+    4 DONE The operation is complete. -->
+    <div class="main">
+        <button id="fetch">Fetch Button</button>
+    </div>
+</body>
+
+<script>
+    // ******* Basic operation
+      
+    // const requestUrl = 'https://api.github.com/users/hiteshchoudhary'
+    // const xhr = new XMLHttpRequest();
+    // xhr.open('GET', requestUrl)
+    // xhr.onreadystatechange = function(){
+    //     console.log(xhr.readyState);
+    //     if (xhr.readyState === 4) {
+    //         const data = JSON.parse(this.responseText)
+    //         console.log(typeof data)
+    //     }
+    // }
+    // xhr.send();
+
+    // *********** CARD
+
+    // const fetchButton = document.getElementById('fetch')
+    // const main = document.querySelector('.main')
+    // fetchButton.addEventListener('click',function(){
+
+    //     const requestUrl = 'https://api.github.com/users/hiteshchoudhary'
+    //     const xhr = new XMLHttpRequest();
+    //     xhr.open('GET', requestUrl)
+        
+    //     xhr.onreadystatechange = function(){
+    //         console.log(xhr.readyState)
+           
+    //         if (xhr.readyState === 4) {
+    //         const data = JSON.parse(this.responseText)
+    //         main.innerHTML= `<img src= ${data.avatar_url} alt="avatar image">
+    //         <p>Followers : ${data.followers}`
+    //         console.log(main)
+    //         }
+    //         }
+
+    //     xhr.send()
+    //     })
+
+ 
+
+</script>
+
+</html>
