@@ -1,101 +1,107 @@
-const promiseOne = new Promise(function(resolve, reject){
-    //Do an async task
-    // DB calls, cryptography, network
-    setTimeout(function(){
-        console.log('Async task is compelete');
+// 1 promise hold in a variable
+const promiseOne = new Promise(function(resolve,reject){
+    setTimeout(() => {
+        // console.log("Promise1 is made!")
         resolve()
-    }, 1000)
+    }, 1000);
 })
 
 promiseOne.then(function(){
-    console.log("Promise consumed");
+    // console.log("promise1 is consumed")
 })
 
-new Promise(function(resolve, reject){
-    setTimeout(function(){
-        console.log("Async task 2");
+// 2 promise directly created
+new Promise(function(resolve,reject){
+    setTimeout(() => {
+        // console.log("Promise2 is made!")
         resolve()
-    }, 1000)
-
+    }, 1000);
 }).then(function(){
-    console.log("Async 2 resolved");
+    // console.log("promise2 is consumed")
 })
 
-const promiseThree = new Promise(function(resolve, reject){
-    setTimeout(function(){
-        resolve({username: "Chai", email: "chai@example.com"})
-    }, 1000)
+// 3 resolve passing fn 
+const promiseThree = new Promise(function(resolve,reject){
+    setTimeout(() => {
+        // console.log("Promise3 is made!")
+        resolve({user: "Anshuya" , email: "anshuyarawat8@gmail.com"})
+    }, 1000);
 })
 
 promiseThree.then(function(user){
-    console.log(user);
+    // console.log(user)
+    // console.log("promise3 is consumed")
+
 })
 
-const promiseFour = new Promise(function(resolve, reject){
+//4 reject() fn, catch(), finally()
+
+const promiseFour = new Promise(function(resolve,reject){
     setTimeout(function(){
-        let error = true
-        if (!error) {
-            resolve({username: "hitesh", password: "123"})
-        } else {
-            reject('ERROR: Something went wrong')
-        }
-    }, 1000)
+    let error = false;
+    if(!error){
+        resolve({username: "Anshuya" , email: "anshuyarawat8@gmail.com"})
+    }else{
+        reject('Error : Something went wrong.')
+    }
+},1000)
 })
 
- promiseFour
- .then((user) => {
-    console.log(user);
+promiseFour
+.then((user) => {
+    // console.log(user)
     return user.username
 }).then((username) => {
-    console.log(username);
-}).catch(function(error){
-    console.log(error);
-}).finally(() => console.log("The promise is either resolved or rejected"))
+    // console.log(username)  // "Anshuya" if error = false
+}).catch(error => {
+    // console.log(error)   // "Error : Something went wrong."  if error = true
+}).finally(() => {
+    // console.log("promise is either resolved or rejected")  // print message either true or false
+})
 
 
-
-const promiseFive = new Promise(function(resolve, reject){
+// async await to accept the file (catch is not handled gracefully in this)
+// try and catch
+const promiseFive = new Promise(function(resolve,reject){
     setTimeout(function(){
-        let error = true
-        if (!error) {
-            resolve({username: "javascript", password: "123"})
-        } else {
-            reject('ERROR: JS went wrong')
+        let error = true;
+        if(!error){
+            resolve({username: "Anshuya" , email: "anshuyarawat8@gmail.com"})
+        }else{
+            reject('Error : Something went wrong.')
         }
-    }, 1000)
-});
+    },1000)
+})
 
 async function consumePromiseFive(){
     try {
         const response = await promiseFive
-        console.log(response);
+        console.log(response)
     } catch (error) {
-        console.log(error);
+        console.log('error!')
     }
 }
 
 consumePromiseFive()
 
+//*** using fetch(promise) url
 // async function getAllUsers(){
-//     try {
-//         const response = await fetch('https://jsonplaceholder.typicode.com/users')
-
+//     try{
+//         const response = await fetch('https://api.github.com/users/hiteshchoudhary')
 //         const data = await response.json()
-//         console.log(data);
-//     } catch (error) {
-//         console.log("E: ", error);
+//         console.log(data)
+//     }catch(error){
+//         console.log("error" , error)
 //     }
+    
 // }
+// getAllUsers()
 
-//getAllUsers()
-
+//*** using then catch for above code
 fetch('https://api.github.com/users/hiteshchoudhary')
-.then((response) => {
-    return response.json()
-})
-.then((data) => {
-    console.log(data);
-})
-.catch((error) => console.log(error))
+.then(response => {
+   return response.json()
+}).then(data => console.log(data))
+.catch( error => console.log(error))
 
-//promise.all
+
